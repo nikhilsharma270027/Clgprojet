@@ -1,0 +1,47 @@
+body {
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #232323;
+  background: #F8F8F8;
+}
+
+nav li:last-child a {
+  background: #FE5F1E;
+}
+nav li:last-child a:hover {
+  background-color: #b23301;
+}
+
+nav li a {
+  transition: all 0.3s ease-in-out;
+}
+nav li a:hover {
+  color: #FE5F1E;
+}
+
+#logo2 {
+  width: 90rem;
+  height: 50rem;
+}
+
+#img {
+  width: 30px;
+  height: 30px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-primary {
+  background: #FE5F1E;
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+  background: #b23301;
+}
+
+section.cart {
+  background: #F8F8F8;
+}
