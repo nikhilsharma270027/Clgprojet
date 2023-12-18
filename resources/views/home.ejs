@@ -4,16 +4,17 @@
             <div class="w-1/2">
                 <h6 class="text-3xl font-bold"><em>Courier Service</em></h6>
                 <h1 class="text-3xl md:text-6xl font-bold">Don't Wait !</h1>
-                <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary"><a href="/courier"></a> Order Now</button>
+                <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary"><a href="/courier"> Order Now</a></button>
             </div>
             <div class="w-1/2">
                 <img id="logo2" src="/img/logo2.png" />
             </div>
         </div>
+        <h1><%= session.user  %></h1>
     
     </section>
 
-    <section class=" flex items-center justify-center">
+    <section class="container flex items-center justify-center">
         
 <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
     <div class="flex items-center justify-between mb-4">
@@ -24,48 +25,53 @@
    </div>
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-            <li class="py-3 sm:py-4">
-                <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+            <% users.forEach(user => { %>
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                <%= user.name %>
+                            </p>
+                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                <%= user.email %>
+                            </p>
+                        </div>
                     </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Neil Sims
-                        </p>
-                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $320
-                    </div>
-                </div>
-            </li>
-            <li class="py-3 sm:py-4">
-                <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image">
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Bonnie Green
-                        </p>
-                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $3467
-                    </div>
-                </div>
-            </li>
+                </li>
+            <% }); %>
             
         </ul>
    </div>
 </div>
 
-    </section>
+</section>
+
+<!-- Other headquaters -->
+<section class="campus">
+    <h1>Our Gobal campus</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+    <div class="row">
+      <div class="campus-col">
+        <img src="eduford_img/london.png" alt="campus" />
+        <div class="layer">
+          <h3>LONDON</h3>
+        </div>
+      </div>
+      <div class="campus-col">
+        <img src="eduford_img/newyork.png" alt="campus" />
+        <div class="layer">
+          <h3>NEW YORK</h3>
+        </div>
+      </div>
+      <div class="campus-col">
+        <img src="eduford_img/washington.png" alt="campus" />
+        <div class="layer">
+          <h3>WASHINGTON</h3>
+        </div>
+      </div>
+    </div>
+  </section>
     
 
 

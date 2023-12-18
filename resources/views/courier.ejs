@@ -1,29 +1,110 @@
-<section class="py-10">
-    <div class="container flex justify-center">
-        <div class="flex">
-            <div >
-                <label>FirstName:</label>
-                <input type="text" />
-                <label>LastName:</label>
-                <input type="text" />
-            </div>
-        </div><br>
-        <div class="flex">
-            <div>
-                <label>Email: </label>
-                <input type="text"/>
-                <label>Phone No.: </label>
-                <input type="text"/>
-            </div>
-        </div><br>
-        <div class="flex">
-            <div>
-                <label>Address: </label>
-                <input type="text"/>
-                <label>Pin-Code: </label>
-                <input type="text"/>
-            </div>
-        </div>
-    </div>
+<!-- <section class="py-10">
+    <body class="bg-gray-100 p-8 ">
+        <div class="max-w-md mx-auto bg-white rounded-lg p-6 shadow-md">
+            <h1 class="text-2xl font-semibold mb-4">Courier Detail Form</h1>
+            <form>
+                <div class="mb-4">
+                    <label for="senderName" class="block text-sm font-medium text-gray-600">Sender's Name</label>
+                    <input type="text" id="senderName" name="senderName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Sender's Name">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="receiverName" class="block text-sm font-medium text-gray-600">Receiver's Name</label>
+                    <input type="text" id="receiverName" name="receiverName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Receiver's Name">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="courierType" class="block text-sm font-medium text-gray-600">Courier Type</label>
+                    <select id="courierType" name="courierType" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400">
+                        <option value="standard">Standard</option>
+                        <option value="express">Express</option>
+                        <option value="overnight">Overnight</option>
+                    </select>
+                </div>
 
+                <div class="mb-4 flex">
+                    <label for="senderName" class="block text-sm font-medium text-gray-600">Weight (in kilograms):</label>
+                    <input type="text" id="" name="weight" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Example . 10kg">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="shippingAddress" class="block text-sm font-medium text-gray-600">Shipping Address</label>
+                    <textarea id="shippingAddress" name="shippingAddress" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" rows="4" placeholder="123 Main St, City, Country"></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label for="senderCity" class="block text-sm font-medium text-gray-600">Sender's City</label>
+                    <input type="text" id="senderName" name="senderName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Ex.bangalore">
+                </div>
+
+                <div class="mb-4">
+                    <label for="receiverCity" class="block text-sm font-medium text-gray-600">Receiver's City</label>
+                    <input type="text" id="senderName" name="senderName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Ex.Delhi">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="trackingNumber" class="block text-sm font-medium text-gray-600">Tracking Number</label>
+                    <input type="text" id="trackingNumber" name="trackingNumber" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="ABCD123456">
+                </div>
+    
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+            </form>
+        </div>
+    </body>
+
+</section> -->
+<section class="py-10">
+    <div class="max-w-md mx-auto bg-white rounded-lg p-6 shadow-md">
+        <h1 class="text-2xl font-semibold mb-4">Courier Detail Form</h1>
+        <form id="courierForm" action="/courierinfo" method="POST" class="w-full"> <!-- Added the "w-full" class to the form -->
+            <div class="mb-4">
+                <label for="senderName" class="block text-sm font-medium text-gray-600">Sender's Name</label>
+                <input type="text" id="senderName" name="senderName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Sender's Name">
+            </div>
+
+            <div class="mb-4">
+                <label for="receiverName" class="block text-sm font-medium text-gray-600">Receiver's Name</label>
+                <input type="text" id="receiverName" name="receiverName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Receiver's Name">
+            </div>
+
+            <div class="mb-4">
+                <label for="courierType" class="block text-sm font-medium text-gray-600">Courier Type</label>
+                <select id="courierType" name="courierType" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400">
+                    <option value="standard">Standard</option>
+                    <option value="express">Express</option>
+                    <option value="overnight">Overnight</option>
+                </select>
+            </div>
+
+            <div class="mb-4 flex">
+                <label for="senderName" class="block text-sm font-medium text-gray-600">Weight (in kilograms):</label>
+                <input type="text" id="" name="weight" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Example . 10kg">
+            </div>
+
+            <div class="mb-4">
+                <label for="senderAddress" class="block text-sm font-medium text-gray-600">Sender Address</label>
+                <textarea id="senderAddress" name="senderAddress" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" rows="4" placeholder="123 Main St, City, Country"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="senderCity" class="block text-sm font-medium text-gray-600">Sender's City</label>
+                <input type="text" id="senderCity" name="senderCity" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Ex. Bangalore">
+            </div>
+
+            <div class="mb-4">
+                <label for="receiverAddress" class="block text-sm font-medium text-gray-600">Receiver Address</label>
+                <textarea id="receiverAddress" name="receiverAddress" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" rows="4" placeholder="123 Main St, City, Country"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="receiverCity" class="block text-sm font-medium text-gray-600">Receiver's City</label>
+                <input type="text" id="receiverCity" name="receiverCity" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400" placeholder="Ex. Delhi">
+            </div>
+
+            
+            <button type="submit"  class=" bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600" id="myForm">Submit</button>
+           
+        </form>
+    </div>
+    
 </section>

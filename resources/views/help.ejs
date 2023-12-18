@@ -1,0 +1,94 @@
+<section class="help">
+ 
+    <div class="container mx-auto p-8 max-w-md">
+        <h2 class="text-2xl font-semibold mb-4">Courier Management</h2>
+        <form id="courierForm" class="space-y-4">
+            <div>
+                <label for="itemName" class="block text-sm font-medium text-gray-600">Item Name:</label>
+                <input type="text" id="itemName" name="itemName" class="mt-1 p-2 w-full border rounded-md" required>
+            </div>
+
+            <div>
+                <label for="itemWeight" class="block text-sm font-medium text-gray-600">Item Weight (in kg):</label>
+                <input type="number" id="itemWeight" name="itemWeight" step="0.1" class="mt-1 p-2 w-full border rounded-md" required>
+            </div>
+
+            <div>
+                <label for="originState" class="block text-sm font-medium text-gray-600">Origin State:</label>
+                <input type="text" id="originState" name="originState" class="mt-1 p-2 w-full border rounded-md" required>
+            </div>
+
+            <div>
+                <label for="destinationState" class="block text-sm font-medium text-gray-600">Destination State:</label>
+                <input type="text" id="destinationState" name="destinationState" class="mt-1 p-2 w-full border rounded-md" required>
+            </div>
+
+            <button type="button" onclick="calculateCost()" class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600">Calculate Cost</button>
+
+            <div id="result" class="text-xl font-bold mt-4"></div>
+        </form>
+    </div>
+</section>
+<script>
+    function calculateCost() {
+    const itemWeight = parseFloat(document.getElementById('itemWeight').value) || 0;
+    const originState = document.getElementById('originState').value.trim().toLowerCase();
+    const destinationState = document.getElementById('destinationState').value.trim().toLowerCase();
+
+    // Define a simple cost calculation formula (you may adjust this based on your requirements)
+    const distanceFactor = 0.5; // Adjust as needed
+    const weightFactor = 2; // Adjust as needed
+
+    const distance = getDistanceBetweenStates(originState, destinationState);
+    const cost = (distance * distanceFactor + itemWeight * weightFactor).toFixed(2);
+
+    document.getElementById('result').innerText = `Estimated Cost: ₹${cost}`;
+}
+
+// Example function to get distance between states (you might need a more accurate method)
+function getDistanceBetweenStates(originState, destinationState) {
+    // This is a placeholder, you should replace it with a proper distance calculation method
+    // based on your requirements (e.g., using an external API or a database)
+    // For simplicity, assuming a constant distance for the example.
+    const stateDistances = {
+    'andhra pradesh': 500,
+    'arunachal pradesh': 800,
+    'assam': 700,
+    'bihar': 600,
+    'chhattisgarh': 450,
+    'goa': 250,
+    'gujarat': 300,
+    'haryana': 600,
+    'himachal pradesh': 500,
+    'jammu and kashmir': 1000,
+    'jharkhand': 550,
+    'karnataka': 400,
+    'kerala': 300,
+    'madhya pradesh': 500,
+    'maharashtra': 200,
+    'manipur': 900,
+    'meghalaya': 850,
+    'mizoram': 950,
+    'nagaland': 850,
+    'odisha': 600,
+    'punjab': 750,
+    'rajasthan': 750,
+    'sikkim': 700,
+    'tamil nadu': 300,
+    'telangana': 400,
+    'tripura': 900,
+    'uttar pradesh': 450,
+    'uttarakhand': 300,
+    'west bengal': 550,
+    'andaman and nicobar islands': 1100,
+    'chandigarh': 600,
+    'dadra and nagar haveli and daman and diu': 150,
+    'lakshadweep': 1200,
+    'delhi': 500,
+    'puducherry': 400,
+};
+
+
+    return stateDistances[destinationState] || 0;
+}
+</script>
