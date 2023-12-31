@@ -91,6 +91,11 @@ function cartController() {
           function calculateCost() {
               const formData = req.session.formData || {};
 
+              //Ensure that req.session.formData is an object
+              if (typeof req.session.formData !== 'object') {
+                  req.session.formData = {};
+              }
+
               // Check if the required properties are present in formData
               if (formData.weight && formData.senderCity && formData.receiverCity) {
                   const itemWeight = parseFloat(formData.weight) || 0;

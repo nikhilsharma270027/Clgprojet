@@ -1,83 +1,58 @@
-
-    <section class="hero py-16">
-        <div class="container mx-auto flex items-center justify-between">
-            <div class="w-1/2">
-                <h6 class="text-3xl font-bold"><em>Courier Service</em></h6>
-                <h1 class="text-3xl md:text-6xl font-bold">Don't Wait !</h1>
-                <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary"><a href="/courier"> Order Now</a></button>
-            </div>
-            <div class="w-1/2">
-                <img id="logo2" src="/img/logo2.png" />
-            </div>
-        </div>
-        <h1><%= session.user  %></h1>
-    
-    </section>
-
-    <section class="container flex items-center justify-center">
-        
-<div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <div class="flex items-center justify-between mb-4">
-        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h5>
-        <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-            View all
-        </a>
-   </div>
-   <div class="flow-root">
-        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-            <% users.forEach(user => { %>
-                <li class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-1 min-w-0">
-                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                <%= user.name %>
-                            </p>
-                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                <%= user.email %>
-                            </p>
-                        </div>
-                    </div>
-                </li>
-            <% }); %>
-            
-        </ul>
-   </div>
-</div>
-
+<section class="hero py-16 mb-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="w-1/2">
+      <h6 class="text-3xl font-bold"><em>Courier Service</em></h6>
+      <h1 class="text-3xl md:text-6xl font-bold">Don't Wait !</h1>
+      <button
+        class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">
+        <a href="/courier"> Order Now</a>
+      </button>
+      <h6 class="text-3xl font-bold py-2 mt-10"><em>Track Your Courier</em></h6>
+      <button class="my-2 btn-primary font-bold text-white px-6 py-2 rounded-full"><a href="/customer/orders">Recent order</a></button>
+    </div>
+    <div class="w-1/2">
+      <img id="logo2" src="/img/logo2.png" />
+    </div>
+  </div>
+  <h1><%= session.user %></h1>
 </section>
 
-<!-- Other headquaters -->
-<section class="campus">
-    <h1>Our Gobal campus</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
-    <div class="row">
-      <div class="campus-col">
-        <img src="eduford_img/london.png" alt="campus" />
-        <div class="layer">
-          <h3>LONDON</h3>
-        </div>
-      </div>
-      <div class="campus-col">
-        <img src="eduford_img/newyork.png" alt="campus" />
-        <div class="layer">
-          <h3>NEW YORK</h3>
-        </div>
-      </div>
-      <div class="campus-col">
-        <img src="eduford_img/washington.png" alt="campus" />
-        <div class="layer">
-          <h3>WASHINGTON</h3>
-        </div>
-      </div>
+<section class="container mx-auto mt-4">
+  <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-8">
+    <div class="flex items-center justify-between mb-4">
+      <h5 class="text-2xl font-bold leading-none text-gray-900 dark:text-white">
+        Latest Customers
+      </h5>
+      <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+        View all
+      </a>
     </div>
-  </section>
-    
+    <div class="flow-root">
+      <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+        <% users.forEach(user => { %>
+        <li class="py-3">
+          <div class="flex items-center space-x-4">
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                <%= user.name %>
+              </p>
+              <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                <%= user.email %>
+              </p>
+            </div>
+          </div>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</section>
 
 
-    <!--  -->
-    <footer></footer>
-    <!-- <script src="/socket.io/socket.io.js"></script> -->
-    <script src="/js/app.js"></script>
+<!--  -->
+<!-- <footer></footer> -->
+<!-- <script src="/socket.io/socket.io.js"></script> -->
+<!-- <script src="/js/app.js"></script>
 </body>
-</html>
+</html> -->

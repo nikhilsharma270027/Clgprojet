@@ -9,9 +9,9 @@
         <div class="courier-info">
             <div class="flex items-center my-8">
                 <div class="flex-1 ml-4">
-                    <h1>Sender: <%= formData.senderName %></h1>
-                    <h1>Receiver: <%= formData.receiverName %></h1>
-                    <span>Type: <%= formData.courierType %></span>
+                    <h1 class="font-bold text-lg">Sender: <%= formData.senderName %></h1>
+                    <h1 class="font-bold text-lg py-4">Receiver: <%= formData.receiverName %></h1>
+                    
                 </div>
                 <span class="flex-1">Weight: <%= formData.weight %> kgs</span>
                 <div>
@@ -23,24 +23,24 @@
              <!-- Checkboxes for Express Services -->
             <div class="mt-4">
                 <label class="block text-sm font-medium text-gray-600">Express Services:</label>
-                <div class="flex items-center">
-                    <input type="radio" name="expressPremium" value="1100" class="mr-2 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" onchange="updateTotal()">
-                    <span class="text-sm">Express Premium (Rs.1100)</span>
+                <div class="flex items-center py-2">
+                    <input type="radio" name="expressPremium" value="1000" class="mr-2 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" onchange="updateTotal()">
+                    <span class="text-sm">Express Premium (Rs.1000)</span>
                 </div>
-                <div class="flex items-center mt-2">
-                    <input type="radio" name="expressStandardAir" value="1000" class="mr-2 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" onchange="updateTotal()">
-                    <span class="text-sm">Express Standard-Air (Rs.1000)</span>
+                <div class="flex items-center mt-2 py-2">
+                    <input type="radio" name="expressStandardAir" value="500" class="mr-2 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" onchange="updateTotal()">
+                    <span class="text-sm">Express Standard-Air (Rs.500)</span>
                 </div>
-                <div class="flex items-center mt-2">
-                    <input type="radio" name="groundPremium" value="500" class="mr-2 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" onchange="updateTotal()">
-                    <span class="text-sm">Ground Premium (Rs.500)</span>
+                <div class="flex items-center mt-2 py-2">
+                    <input type="radio" name="groundPremium" value="200" class="mr-2 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" onchange="updateTotal()">
+                    <span class="text-sm">Ground Premium (Rs.200)</span>
                 </div>
             </div>
 
     <!-- Risk Surcharge Dropdown -->
     <div class="mt-4">
         <label class="block text-sm font-medium text-gray-600">Risk Surcharge:</label>
-        <select name="riskSurcharge" onchange="updateTotal()" class="border border-gray-400 p-2 w-1/2 mb-4">
+        <select name="riskSurcharge" onchange="updateTotal()" class="border border-gray-400 p-3 w-1/2 mb-4 rounded-full">
             <option class="mb-3" value="no-risk">No Risk (0% of the cost)</option>
             <option value="owner-risk">Owner Risk (0.2% of the declared value or Rs.25, whichever is higher)</option>
             <option value="carrier-risk">Carrier Risk (2% of the declared value or Rs.25, whichever is higher)</option>
@@ -58,7 +58,11 @@
 
                 <% if(user){ %>
                 <div>
+                    <span class="text-gray-400 mx-5">"Add Mobile.no and CityName for confirmation"</span>
                     <form action="/orders" method="POST" class="mt-12">
+                        <% if(messages.error){ %>
+                            <span class="text-red-500 font-sm"><%= messages.error %></span>
+                            <% } %>
                         <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone number" />
                         <input name="address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address..." />
                         <div>
@@ -81,59 +85,13 @@
                 <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="empty-cart" /> 
                 <a href="/courier" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Go Back</a>   
             </div>
-             <% } %>
+             
         </div>
-       
+       <% } %>
 </section>
 
-<!-- <section class="cart py-16">
-    <div class="order container mx-auto">
-        <div class="flex items-center border-b border-gray-300">
-            <img src="/img/truck.png" />
-            <h1 class="font-bold ml-4 text-2xl">Courier Summary</h1>
-        </div>
-        <div class="courier-info">
-            <!--Display form details here-->  
-            <div class="mb-4">
-                <span class="text-lg font-bold">Sender's Name:</span>
-                <span class="text-xl ml-2"><%= formData.senderName %></span>
-            </div>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-            <div class="mb-4">
-                <span class="text-lg font-bold">Sender's Address:</span>
-                <span class="text-xl ml-2"><%= formData.senderAddress %></span>
-            </div>
-            <hr>
-            <div class="mb-4">
-                <span class="text-lg font-bold">Receiver's Name:</span>
-                <span class="text-xl ml-2"><%= formData.receiverName %></span>
-            </div>
-
-            <div class="mb-4">
-                <span class="text-lg font-bold">Receiver Address:</span>
-                <span class="text-xl ml-2"><%= formData.receiverAddress %></span>
-            </div>
-            <hr>
-            <div class="mb-4">
-                <span class="text-lg font-bold">Courier Type:</span>
-                <span class="text-xl ml-2"><%= formData.courierType %></span>
-            </div>
-
-            <div class="mb-4">
-                <span class="text-lg font-bold">Courier Weight:</span>
-                <span class="text-xl ml-2"><%= formData.weight %>kgs</span>
-            </div>
-
-            <!-- Add similar blocks for other form fields -->
-
-            <div class="mb-4">
-                <span class="text-lg font-bold">Total Amount:</span>
-                <!-- Replace this static value with actual calculation or data -->
-                <span class="amount text-2xl font-bold ml-2">₹<%= session.formData.cost %></span>
-            </div>
-        </div>
-    </div>
-</section>  -->
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <script>

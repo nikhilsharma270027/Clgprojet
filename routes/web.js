@@ -27,19 +27,59 @@ function initRoutes(app) { // recieveing app from server.js
     app.get('/courier', (req,res) => {  //cart
         res.render('courier')
     })
-    app.post('/courierinfo', (req, res) => {
-        const formData = req.body;
+    // app.post('/courierinfo', (req, res) => {
+    //     const formData = req.body;
 
-         // Store form data in the session
-        req.session.formData = formData;
+    //      // Store form data in the session
+    //     req.session.formData = formData;
         
 
-         // Redirect to the cart page
+    //      // Redirect to the cart page
+    //     res.redirect('/cart');
+    //     console.log(formData);
+    //     console.log(formData.weight);
+    //     //res.json(formData);
+    // });
+    app.post('/courierinfo', (req, res) => {
+        const {
+            senderName,
+            receiverName,
+            courierType,
+            weight,
+            senderAddress,
+            senderCity,
+            senderPincode,
+            receiverAddress,
+            receiverCity,
+            receiverPincode
+        } = req.body;
+    
+        // Validate request
+        if (!senderName || !receiverName || !courierType || !weight || !senderPincode || !senderAddress || !senderCity || !receiverAddress || !receiverCity || !receiverPincode) {
+            req.flash("error", "All fields are required");
+            return res.redirect("/courier"); // or whatever your error redirect route is
+        }
+    
+        // Store form data in the session
+        req.session.formData = {
+            senderName,
+            receiverName,
+            courierType,
+            weight,
+            senderAddress,
+            senderCity,
+            senderPincode,
+            receiverAddress,
+            receiverCity,
+            receiverPincode
+        };
+    
+        // Redirect to the cart page
         res.redirect('/cart');
-        console.log(formData);
-        console.log(formData.weight);
-        //res.json(formData);
+        console.log(req.session.formData);
     });
+    
+
 
     
     
